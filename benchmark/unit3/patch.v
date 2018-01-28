@@ -1,0 +1,9 @@
+module patch (t_0, g1, g2, g3);
+input g1, g2, g3;
+output t_0;
+wire w1;
+
+and ( w1 , g1 , g2 );
+or ( t_0 , w1 , g3 );
+
+endmodule

@@ -1,0 +1,18 @@
+module patch (t_0, g1, g2, g3, g4);
+input g1, g2, g3, g4;
+output t_0;
+wire w1, w2, w3, w4, w5, w6, w7, w8, w9, w10;
+
+and ( w1 , g3 , g4 );
+and ( w2 , w1 , g1 );
+and ( w3 , g2 , w2 );
+not ( w4 , w3 );
+and ( w5 , g1 , w4 );
+not ( w6 , w5 );
+and ( w7 , w6 , w1 );
+not ( w8 , w2 );
+and ( w9 , w8 , g2 );
+not ( w10 , w9 );
+and ( t_0 , w7 , w10 );
+
+endmodule

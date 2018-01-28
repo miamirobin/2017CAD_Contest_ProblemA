@@ -1,0 +1,51 @@
+CSRCS     = $(wildcard *.cpp) $(wildcard *.c)
+CHDRS     = $(wildcard *.h)
+COBJS     = $(addsuffix .o, $(basename $(CSRCS)))
+
+EXTINCDIR = ../
+DEPENDDIR = -I. -I$(EXTINCDIR)
+LIBDIR    = ../../lib
+EXTLINK   = $(PKGNAME).d
+LIBDEPEND = $(LIBDIR)/lib.d
+
+CXX       = g++
+CCC       = gcc
+AR        = ar cr
+
+CFLAGS = -O3 -DNDEBUG -fpermissive -std=c++0x -Wall $(PKGFLAG) 
+#CFLAGS = -O3 -DNDEBUG -DVERBOSE -Wall $(PKGFLAG)
+#CFLAGS = -g -Wall -std=c++0x $(PKGFLAG)
+
+#CFLAGS += -std=c++0x
+
+.PHONY: depend
+
+%.o : %.cpp
+	@echo "> compiling: $<"
+	@$(CXX) $(CFLAGS) -I$(EXTINCDIR) -c -o $@ $<
+
+%.o : %.c
+	@echo "> compiling: $<"
+	@$(CCC) $(CFLAGS) -I$(EXTINCDIR) -c -o $@ $<
+
+top: $(EXTLINK) target
+	@echo -n
+
+clean:
+	@rm -f $(COBJS)
+
+## Make dependencies
+depend: .depend.mak
+.depend.mak: $(CSRCS) $(CHDRS)
+	@echo Making dependencies ...
+	@$(CXX) -MM $(DEPENDDIR) $(CSRCS) > $@
+
+## Linking external headers
+extheader: .extheader.mak
+.extheader.mak: $(EXTHDRS)
+	@echo Linking external header files...
+	@rm -f $@
+	@echo -n "$(EXTLINK): " > $@
+
+include .depend.mak
+include .extheader.mak

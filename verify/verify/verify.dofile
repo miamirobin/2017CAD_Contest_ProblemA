@@ -1,0 +1,4 @@
+read rtl miter.v
+flatten ntk
+write rtl flatten.v
+quit -f
