@@ -1,0 +1,11 @@
+cirread G.v
+cirsweep
+ciropt
+cirstrash
+cirsim
+cirfraig -low
+cirprint
+cirprint -n
+cirwrite -o test.out
+usage
+quit

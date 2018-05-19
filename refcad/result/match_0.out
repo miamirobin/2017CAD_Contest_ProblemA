@@ -1,0 +1,28 @@
+OUTGROUP
+1 + g
+END
+OUTGROUP
+1 + f
+2 + x
+END
+OUTGROUP
+1 + h
+2 + y
+2 - z
+END
+INGROUP
+1 + a
+2 - t
+2 + w
+END
+INGROUP
+1 + b
+2 + v
+END
+INGROUP
+1 + c
+2 + u
+END
+CONST0GROUP
+2 - s
+END

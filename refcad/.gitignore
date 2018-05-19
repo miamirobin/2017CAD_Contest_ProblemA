@@ -1,0 +1,22 @@
+# ignore binary
+np3
+
+# ignore object files
+*.o
+
+#ignore libraries
+*.a
+
+# ignore swap files
+*.swp
+
+# ignore tags
+src/tags
+
+# ignore np3 output
+match.out
+
+# ignore verify temporary files
+verify/miter.v
+verify/flatten.v
+verify/trace.cnf
