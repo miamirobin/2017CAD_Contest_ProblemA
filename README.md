@@ -11,7 +11,7 @@ Note: The offical website claims that the cic machine provides g++ 4.8.2 version
 
 1. How to run  
    Run cada049 directly: `   ./cada049 F.v G.v weight.txt patch.v out.v   `  
-   Run all cases: ` ./com.py `
+   Run all cases: ` ./com.sh `
 
 2. How to compile  
    There is already a compiled executable file named cada049.
